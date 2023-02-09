@@ -2,10 +2,10 @@
 module.exports = {
   content: [
     // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
