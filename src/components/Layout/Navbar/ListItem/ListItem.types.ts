@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { ElementType } from 'react';
 
 export interface IProps {
   name: string;
   path: string;
-  icon?: ReactNode;
+  Icon: ElementType;
 }
