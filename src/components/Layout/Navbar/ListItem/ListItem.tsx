@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import { IProps } from '@/components/Layout/Navbar/ListItem/types';
+import { IProps } from '@/components/Layout/Navbar/ListItem/ListItem.types';
 export const ListItem: FC<IProps> = ({ name, path, icon }) => {
   return (
     <li className="mb-2 px-4 py-4 text-gray-100 flex flex-row  border-gray-300 hover:text-black   hover:bg-gray-300  hover:font-bold rounded rounded-lg">

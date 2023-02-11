@@ -1,8 +1,8 @@
-import { ProfileImage } from '@/components/Layout/Navbar/ProfileImage';
 import { ListItem } from '@/components/Layout/Navbar/ListItem';
-import { model } from '@/components/Layout/Navbar/constants';
+import { model } from '@/components/Layout/Navbar/Navbar.constants';
+import { ProfileImage } from '@/components/Layout/Navbar/ProfileImage';
 
-export default function Navbar() {
+export function Navbar() {
   return (
     <nav className="flex flex-col bg-purple-900 w-64 h-screen px-4 text-gray-900 border border-purple-900">
       <ProfileImage />
