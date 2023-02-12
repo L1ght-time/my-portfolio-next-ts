@@ -1,4 +1,5 @@
 import { BiHome } from 'react-icons/bi';
+import { CgProfile } from 'react-icons/cg';
 
 export const model = [
   {
@@ -9,6 +10,6 @@ export const model = [
   {
     name: 'About',
     path: '/about',
-    Icon: BiHome,
+    Icon: CgProfile,
   },
 ];

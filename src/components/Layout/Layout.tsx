@@ -6,7 +6,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex">
       <Navbar />
-      <div className="p-5 w-full">{children}</div>
+      <div className="p-5 w-full bg-neutral-200">{children}</div>
     </div>
   );
 };

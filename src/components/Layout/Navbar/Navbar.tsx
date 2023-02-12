@@ -4,10 +4,10 @@ import { ProfileImage } from '@/components/Layout/Navbar/ProfileImage';
 
 export function Navbar() {
   return (
-    <nav className="flex flex-col bg-purple-900 w-64 h-screen px-4 text-gray-900 border border-purple-900">
+    <nav className="flex flex-col bg-gray-50 w-64 h-screen px-4 text-gray-900 border-r-1 border-gray-300">
       <ProfileImage />
-      <div className="mt-10 mb-4">
-        <ul className="ml-4">
+      <div className="mt-5 mb-4">
+        <ul>
           {model.map((item) => (
             <ListItem key={item.name} {...item} />
           ))}
