@@ -5,8 +5,8 @@ import profile from '@/assets/profile.jpg';
 export const ProfileImage = () => {
   return (
     <div className="flex flex-wrap mt-8">
-      <div className="w-1/2">
-        <Image src={profile} className="mx-auto w-20 h-20 rounded-full" alt="" />
+      <div className="w-64">
+        <Image src={profile} className={`w-16 h-16 rounded-full`} alt="" />
       </div>
     </div>
   );
