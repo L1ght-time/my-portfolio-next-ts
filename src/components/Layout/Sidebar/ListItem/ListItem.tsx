@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import Link from 'next/link';
 
-import { IProps } from '@/components/Layout/Navbar/ListItem';
-import { useNavbarStore } from '@/components/Layout/Navbar';
+import { useLayoutStore } from '@/store';
+
+import { IProps } from './ListItem.types';
 
 export const ListItem: FC<IProps> = ({ name, path, Icon }) => {
-  const { isOpen } = useNavbarStore();
+  const { isOpen } = useLayoutStore();
 
   return (
     <li className="text-black hover:bg-gray-800 rounded rounded-lg hover:text-white font-bold">

@@ -5,7 +5,7 @@ interface IStore {
   setOpen: () => void;
 }
 
-export const useNavbarStore = create<IStore>((set) => ({
+export const useLayoutStore = create<IStore>((set) => ({
   isOpen: true,
   setOpen: () => set((state: IStore) => ({ isOpen: !state.isOpen })),
 }));
