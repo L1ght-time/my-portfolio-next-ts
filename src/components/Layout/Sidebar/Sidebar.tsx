@@ -13,7 +13,7 @@ export function Sidebar() {
   return (
     <nav
       className={clsx(
-        'flex flex-col justify-between bg-gray-50 w-24 h-screen text-gray-900 border-r-1 border-gray-300 transition-[width]',
+        'flex flex-col justify-between bg-gray-50 w-24 h-screen text-gray-900 border-r-4 border-gray-500 transition-[width]',
         { ['w-64']: isOpen },
       )}
     >
