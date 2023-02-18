@@ -1,4 +1,4 @@
-import { DropDownLabelProps } from '@/components/shared/DropDown/DropDownLabel/DropDownLabel.types';
+import { DropDownLabelProps } from './DropDownLabel.types';
 
 export const DropDownLabel = ({ children, ...rest }: DropDownLabelProps) => {
   return <label {...rest}>{children}</label>;
