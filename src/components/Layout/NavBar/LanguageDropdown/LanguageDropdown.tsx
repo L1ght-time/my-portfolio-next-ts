@@ -1,37 +1,34 @@
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
+import { useLayoutStore } from '@/store';
 import {
   DropDown,
   DropDownButton,
   DropDownContent,
-  DropDownContentItem,
   DropDownIcon,
-} from '@/components/shared/DropDown/DropDown';
-import { useLayoutStore } from '@/store';
+  DropDownItem,
+  DropDownLabel,
+} from '@/components/shared/DropDown';
 
-const model = [
-  { id: 1, name: 'Ukrainian' },
-  { id: 2, name: 'English' },
-];
+import { modelLanguages } from './LanguageDropdown.constants';
+
 export const LanguageDropdown = () => {
   const { language, setLanguage } = useLayoutStore();
 
   return (
     <DropDown>
-      <DropDownButton className="btn m-1">
+      <DropDownLabel className="btn m-1">
         {language}
         <DropDownIcon className="ml-1">
           <MdKeyboardArrowDown />
         </DropDownIcon>
-      </DropDownButton>
+      </DropDownLabel>
       <DropDownContent>
-        <DropDownContentItem>
-          {model.map(({ id, name }) => (
-            <DropDownButton key={id} onClick={() => setLanguage(name)}>
-              {name}
-            </DropDownButton>
-          ))}
-        </DropDownContentItem>
+        {modelLanguages.map(({ id, name }) => (
+          <DropDownItem key={id}>
+            <DropDownButton onClick={() => setLanguage(name)}>{name}</DropDownButton>
+          </DropDownItem>
+        ))}
       </DropDownContent>
     </DropDown>
   );
