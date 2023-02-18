@@ -16,7 +16,6 @@ const model = [
 export const LanguageDropdown = () => {
   const { language, setLanguage } = useLayoutStore();
 
-  console.log({ language });
   return (
     <DropDown>
       <DropDownButton className="btn m-1">
