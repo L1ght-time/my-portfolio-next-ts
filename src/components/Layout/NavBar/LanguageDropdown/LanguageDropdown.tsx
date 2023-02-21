@@ -9,11 +9,17 @@ import {
   DropDownItem,
   DropDownLabel,
 } from '@/components/shared/DropDown';
+import { LOCALES } from '@/i18n';
 
 import { modelLanguages } from './LanguageDropdown.constants';
 
 export const LanguageDropdown = () => {
-  const { language, setLanguage } = useLayoutStore();
+  const { language, setLocale, setLanguage } = useLayoutStore();
+
+  const handleClick = (name: string) => {
+    setLanguage(name);
+    setLocale(LOCALES[name.toUpperCase() as keyof typeof LOCALES]);
+  };
 
   return (
     <DropDown>
@@ -26,7 +32,7 @@ export const LanguageDropdown = () => {
       <DropDownContent>
         {modelLanguages.map(({ id, name }) => (
           <DropDownItem key={id}>
-            <DropDownButton onClick={() => setLanguage(name)}>{name}</DropDownButton>
+            <DropDownButton onClick={() => handleClick(name)}>{name}</DropDownButton>
           </DropDownItem>
         ))}
       </DropDownContent>

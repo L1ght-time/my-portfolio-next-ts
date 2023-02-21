@@ -4,6 +4,9 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 
 import { Layout } from '@/components/Layout';
+import { useLayoutStore } from '@/store';
+import { I18nProvider } from '@/i18n';
+import { LOCALES } from '@/i18n/constants';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -13,10 +16,14 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const { locale } = useLayoutStore();
+
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <I18nProvider locale={locale as keyof typeof LOCALES}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </I18nProvider>
   );
 }
 
