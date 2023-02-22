@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
 
-import { LOCALES } from '@/i18n';
+import { TLocalesKeys } from '@/types';
 
-export type TProvider = PropsWithChildren & { locale: keyof typeof LOCALES };
+export type TProvider = PropsWithChildren & { locale: TLocalesKeys };

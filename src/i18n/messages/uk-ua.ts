@@ -1,7 +1,7 @@
 import { LOCALES } from '@/i18n/constants';
 
 export default {
-  [LOCALES.UKRAINE]: {
+  [LOCALES.uk]: {
     title: 'Про мене',
   },
 };

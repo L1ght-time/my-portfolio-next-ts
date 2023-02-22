@@ -9,22 +9,16 @@ import {
   DropDownItem,
   DropDownLabel,
 } from '@/components/shared/DropDown';
-import { LOCALES } from '@/i18n';
 
 import { modelLanguages } from './LanguageDropdown.constants';
 
 export const LanguageDropdown = () => {
-  const { language, setLocale, setLanguage } = useLayoutStore();
-
-  const handleClick = (name: string) => {
-    setLanguage(name);
-    setLocale(LOCALES[name.toUpperCase() as keyof typeof LOCALES]);
-  };
+  const { locale, setLocale } = useLayoutStore();
 
   return (
     <DropDown>
       <DropDownLabel className="btn m-1">
-        {language}
+        {locale}
         <DropDownIcon className="ml-1">
           <MdKeyboardArrowDown />
         </DropDownIcon>
@@ -32,7 +26,7 @@ export const LanguageDropdown = () => {
       <DropDownContent>
         {modelLanguages.map(({ id, name }) => (
           <DropDownItem key={id}>
-            <DropDownButton onClick={() => handleClick(name)}>{name}</DropDownButton>
+            <DropDownButton onClick={() => setLocale(name)}>{name.toUpperCase()}</DropDownButton>
           </DropDownItem>
         ))}
       </DropDownContent>
