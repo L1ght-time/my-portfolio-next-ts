@@ -20,17 +20,17 @@ export const ThemeDropdown = () => {
   const handleClick = useCallback((name: TThemesKeys) => {
     setTheme(name);
     localStorage.setItem('theme', name);
+    document.body.setAttribute('data-theme', name);
   }, []);
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
     const cachedTheme = localStorage.getItem('theme');
 
-    return () => {
+    if (cachedTheme) {
       setTheme(cachedTheme as TThemesKeys);
-      document.body.setAttribute('data-theme', theme);
-    };
-  }, [theme]);
+      document.body.setAttribute('data-theme', cachedTheme);
+    }
+  }, []);
 
   return (
     <DropDown>
