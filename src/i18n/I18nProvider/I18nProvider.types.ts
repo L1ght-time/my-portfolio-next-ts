@@ -1,5 +1,4 @@
 import { PropsWithChildren } from 'react';
+import { IntlConfig } from 'react-intl';
 
-import { TLocalesKeys } from '@/i18n';
-
-export type TProvider = PropsWithChildren & { locale: TLocalesKeys };
+export type TProvider = PropsWithChildren & IntlConfig;
