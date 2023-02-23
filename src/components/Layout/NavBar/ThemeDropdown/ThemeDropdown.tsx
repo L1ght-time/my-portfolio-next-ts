@@ -1,5 +1,5 @@
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useThemeStore } from '@/store';
 import {
@@ -10,14 +10,31 @@ import {
   DropDownItem,
   DropDownLabel,
 } from '@/components/shared/DropDown';
+import { TThemesKeys } from '@/theme/constants';
 
 import { modelThemes } from './ThemeDropdown.constants';
 
 export const ThemeDropdown = () => {
   const { theme, setTheme } = useThemeStore();
 
+  const handleClick = useCallback(
+    (name: TThemesKeys) => {
+      setTheme(name);
+
+      localStorage.setItem('theme', name);
+    },
+    [theme],
+  );
+
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
+
+    const cachedTheme = localStorage.getItem('theme');
+
+    if (cachedTheme) {
+      setTheme(cachedTheme as TThemesKeys);
+      document.body.setAttribute('data-theme', theme);
+    }
   }, [theme]);
 
   return (
@@ -31,7 +48,7 @@ export const ThemeDropdown = () => {
       <DropDownContent>
         {modelThemes.map(({ id, name }) => (
           <DropDownItem key={id}>
-            <DropDownButton onClick={() => setTheme(name)}>{name.toUpperCase()}</DropDownButton>
+            <DropDownButton onClick={() => handleClick(name)}>{name.toUpperCase()}</DropDownButton>
           </DropDownItem>
         ))}
       </DropDownContent>
