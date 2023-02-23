@@ -1,6 +1,6 @@
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
-import { useLayoutStore } from '@/store';
+import { useLocaleStore } from '@/store';
 import {
   DropDown,
   DropDownButton,
@@ -13,7 +13,7 @@ import {
 import { modelLanguages } from './LanguageDropdown.constants';
 
 export const LanguageDropdown = () => {
-  const { locale, setLocale } = useLayoutStore();
+  const { locale, setLocale } = useLocaleStore();
 
   return (
     <DropDown>
