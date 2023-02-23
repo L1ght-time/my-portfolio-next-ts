@@ -17,24 +17,19 @@ import { modelThemes } from './ThemeDropdown.constants';
 export const ThemeDropdown = () => {
   const { theme, setTheme } = useThemeStore();
 
-  const handleClick = useCallback(
-    (name: TThemesKeys) => {
-      setTheme(name);
-
-      localStorage.setItem('theme', name);
-    },
-    [theme],
-  );
+  const handleClick = useCallback((name: TThemesKeys) => {
+    setTheme(name);
+    localStorage.setItem('theme', name);
+  }, []);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
-
     const cachedTheme = localStorage.getItem('theme');
 
-    if (cachedTheme) {
+    return () => {
       setTheme(cachedTheme as TThemesKeys);
       document.body.setAttribute('data-theme', theme);
-    }
+    };
   }, [theme]);
 
   return (
