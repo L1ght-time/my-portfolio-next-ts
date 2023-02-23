@@ -4,6 +4,7 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 
 import { Layout } from '@/components/Layout';
+import { I18nProvider } from '@/i18n';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -14,9 +15,11 @@ type AppPropsWithLayout = AppProps & {
 };
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <I18nProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </I18nProvider>
   );
 }
 
