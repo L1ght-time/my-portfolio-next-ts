@@ -8,13 +8,13 @@ import { ProfileImage } from '@/components/shared';
 import { model } from './Sidebar.constants';
 
 export function Sidebar() {
-  const { isOpen, setOpen } = useLayoutStore();
+  const { toggleOpen, setToggleOpen } = useLayoutStore();
 
   return (
     <nav
       className={clsx(
         'flex flex-col justify-between bg-gray-50 w-24 h-screen text-gray-900 border-r-[1px] border-gray-300 transition-[width]',
-        { 'w-64': isOpen },
+        { 'w-64': toggleOpen },
       )}
     >
       <div className="px-4">
@@ -30,8 +30,11 @@ export function Sidebar() {
         </div>
       </div>
 
-      <button className="flex justify-center w-full border-t border-gray-100 p-4 hover:bg-gray-100" onClick={setOpen}>
-        {isOpen ? <RxDoubleArrowLeft /> : <RxDoubleArrowRight />}
+      <button
+        className="flex justify-center w-full border-t border-gray-100 p-4 hover:bg-gray-100"
+        onClick={setToggleOpen}
+      >
+        {toggleOpen ? <RxDoubleArrowLeft /> : <RxDoubleArrowRight />}
       </button>
     </nav>
   );

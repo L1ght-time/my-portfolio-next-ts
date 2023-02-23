@@ -6,7 +6,7 @@ import { useLayoutStore } from '@/store';
 import { IProps } from './ListItem.types';
 
 export const ListItem: FC<IProps> = ({ name, path, Icon }) => {
-  const { isOpen } = useLayoutStore();
+  const { toggleOpen } = useLayoutStore();
 
   return (
     <li className="text-black hover:bg-gray-800 rounded rounded-lg hover:text-white font-bold">
@@ -14,7 +14,7 @@ export const ListItem: FC<IProps> = ({ name, path, Icon }) => {
         <span className="min-w-30">
           <Icon size={30} />
         </span>
-        {isOpen && <span className="ml-2">{name}</span>}
+        {toggleOpen && <span className="ml-2">{name}</span>}
       </Link>
     </li>
   );
