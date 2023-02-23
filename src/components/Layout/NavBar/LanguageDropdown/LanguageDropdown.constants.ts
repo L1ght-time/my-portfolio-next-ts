@@ -1,4 +1,6 @@
+import { nanoid } from 'nanoid';
+
 export const modelLanguages = [
-  { id: 1, name: 'uk' },
-  { id: 2, name: 'en' },
+  { id: nanoid(), name: 'uk' },
+  { id: nanoid(), name: 'en' },
 ] as const;
