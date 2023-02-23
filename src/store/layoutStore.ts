@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 
-import { LOCALES } from '@/i18n';
-import { TLocalesKeys } from '@/types';
+import { LOCALES, TLocalesKeys } from '@/i18n';
 
 interface IStore {
   toggleOpen: boolean;
