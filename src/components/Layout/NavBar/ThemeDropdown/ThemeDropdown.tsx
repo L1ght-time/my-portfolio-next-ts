@@ -24,6 +24,7 @@ export const ThemeDropdown = () => {
   }, []);
 
   useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
     const cachedTheme = localStorage.getItem('theme');
 
     if (cachedTheme) {
