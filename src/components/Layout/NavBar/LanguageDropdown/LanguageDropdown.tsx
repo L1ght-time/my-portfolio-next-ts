@@ -1,4 +1,5 @@
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { useCallback, useEffect } from 'react';
 
 import { useLocaleStore } from '@/store';
 import {
@@ -9,11 +10,26 @@ import {
   DropDownItem,
   DropDownLabel,
 } from '@/components/shared/DropDown';
+import { TThemesKeys } from '@/theme/constants';
+import { TLocalesKeys } from '@/i18n';
 
 import { modelLanguages } from './LanguageDropdown.constants';
 
 export const LanguageDropdown = () => {
   const { locale, setLocale } = useLocaleStore();
+
+  const handleClick = useCallback((name: TLocalesKeys) => {
+    setLocale(name);
+    localStorage.setItem('locale', name);
+  }, []);
+
+  useEffect(() => {
+    const cachedLocale = localStorage.getItem('locale');
+
+    if (cachedLocale) {
+      setLocale(cachedLocale as TLocalesKeys);
+    }
+  }, []);
 
   return (
     <DropDown>
@@ -26,7 +42,7 @@ export const LanguageDropdown = () => {
       <DropDownContent>
         {modelLanguages.map(({ id, name }) => (
           <DropDownItem key={id}>
-            <DropDownButton onClick={() => setLocale(name)}>{name.toUpperCase()}</DropDownButton>
+            <DropDownButton onClick={() => handleClick(name)}>{name.toUpperCase()}</DropDownButton>
           </DropDownItem>
         ))}
       </DropDownContent>
