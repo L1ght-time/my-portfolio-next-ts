@@ -10,7 +10,6 @@ import {
   DropDownItem,
   DropDownLabel,
 } from '@/components/shared/DropDown';
-import { TThemesKeys } from '@/theme/constants';
 import { TLocalesKeys } from '@/i18n';
 
 import { modelLanguages } from './LanguageDropdown.constants';
