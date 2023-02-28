@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { ABOUT } from '@/pages/api/db/about';
+import { about } from './db/about';
 
 type Data = {
   name: string;
@@ -8,6 +8,6 @@ type Data = {
 
 export default function handler(req: NextApiRequest, res: any) {
   if (req.method === 'GET') {
-    res.status(200).json(ABOUT);
+    res.status(200).json(about);
   }
 }
