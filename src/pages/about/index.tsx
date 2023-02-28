@@ -27,6 +27,10 @@ export async function getStaticProps() {
   }
 }
 const About: NextPage = ({ title }: any) => {
+  if (!title) {
+    return null;
+  }
+
   return (
     <>
       {title}

@@ -7,7 +7,5 @@ type Data = {
 };
 
 export default function handler(req: NextApiRequest, res: any) {
-  if (req.method === 'GET') {
-    res.status(200).json(ABOUT);
-  }
+  res.status(200).json(ABOUT);
 }
