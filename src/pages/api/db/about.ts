@@ -1,3 +1,3 @@
-export const ABOUT = {
+export const about = {
   title: 'ABOUT',
 } as const;
