@@ -1,11 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { ABOUT } from '@/pages/api/db/about';
+import { ABOUT } from '@/pages/api/data/about';
 
 type Data = {
   name: string;
 };
 
 export default function handler(req: NextApiRequest, res: any) {
-  res.status(200).json(ABOUT);
+  if (req.method === 'GET') {
+    res.status(200).json(ABOUT);
+  }
 }
