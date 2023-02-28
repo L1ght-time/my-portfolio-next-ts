@@ -31,6 +31,8 @@ const About: NextPage = ({ title }: any) => {
     return null;
   }
 
+  console.log({ title });
+
   return (
     <>
       {title}
