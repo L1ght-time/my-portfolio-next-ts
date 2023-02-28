@@ -3,15 +3,27 @@ import { FormattedMessage } from 'react-intl';
 import process from 'process';
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_HOST}/about`);
-  const data = await response.json();
-  return {
-    props: {
-      title: data.title,
-    },
-  };
+  try {
+    const response = await fetch(`${process.env.API_HOST}/about`);
+    const data = await response.json();
+    return {
+      props: {
+        title: data.title,
+      },
+    };
+  } catch {
+    return {
+      props: {
+        title: null,
+      },
+    };
+  }
 }
 const About: NextPage = ({ title }: any) => {
+  if (!title) {
+    return null;
+  }
+
   return (
     <>
       {title}
