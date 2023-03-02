@@ -3,21 +3,20 @@ import { useRouter } from 'next/router';
 import { TbArrowNarrowLeft } from 'react-icons/tb';
 import { FormattedMessage } from 'react-intl';
 
-import { ROUTES_PAGES } from '@/constants';
+import { ROUTES } from '@/constants';
 
 const NotFound = () => {
   const router = useRouter();
+  const handeRedirect = () => router.push(ROUTES.home);
 
   useEffect(() => {
-    setTimeout(() => {
-      return router.push(ROUTES_PAGES.home);
-    }, 5000);
+    setTimeout(() => handeRedirect, 5000);
   }, [router]);
 
   return (
     <div className="flex justify-center items-center h-full">
       <div>
-        <button onClick={() => router.push(ROUTES_PAGES.home)}>
+        <button onClick={handeRedirect}>
           <TbArrowNarrowLeft fontSize={24} />
         </button>
         <h1 className="font-medium">
