@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { TbArrowNarrowLeft } from 'react-icons/tb';
 import { FormattedMessage } from 'react-intl';
+import { useTimeoutFn } from 'react-use';
 
 import { ROUTES } from '@/constants';
 
@@ -9,9 +10,7 @@ const NotFound = () => {
   const router = useRouter();
   const handeRedirect = () => router.push(ROUTES.home);
 
-  useEffect(() => {
-    setTimeout(() => handeRedirect, 5000);
-  }, [router]);
+  useTimeoutFn(handeRedirect, 5000);
 
   return (
     <div className="flex justify-center items-center h-full">
