@@ -1,5 +1,6 @@
 import { RxDoubleArrowLeft, RxDoubleArrowRight } from 'react-icons/rx';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 
 import { ListItem } from '@/components/Layout/Sidebar/ListItem';
 import { useLayoutStore } from '@/store';
@@ -9,7 +10,7 @@ import { model } from './Sidebar.constants';
 
 export function Sidebar() {
   const { isOpen, toggleOpen } = useLayoutStore();
-
+  const { route } = useRouter();
   return (
     <nav
       className={clsx(
@@ -22,9 +23,9 @@ export function Sidebar() {
           <ProfileImage />
         </div>
         <div className="mt-5 mb-4">
-          <ul>
+          <ul className="flex flex-col gap-y-1.5">
             {model.map((item) => (
-              <ListItem key={item.name} {...item} />
+              <ListItem key={item.name} isActive={route === item.path} {...item} />
             ))}
           </ul>
         </div>
