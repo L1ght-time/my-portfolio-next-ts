@@ -1,7 +1,9 @@
 import { BiHome } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 
-export const model = [
+import { IListItemProps } from './ListItem';
+
+export const model: ReadonlyArray<IListItemProps> = [
   {
     name: 'Dashboard',
     path: '/',
@@ -12,4 +14,4 @@ export const model = [
     path: '/about',
     Icon: CgProfile,
   },
-];
+] as const;

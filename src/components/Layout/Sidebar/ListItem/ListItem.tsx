@@ -1,20 +1,21 @@
 import { FC } from 'react';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 import { useLayoutStore } from '@/store';
 
-import { IProps } from './ListItem.types';
+import { IListItemProps } from './ListItem.types';
 
-export const ListItem: FC<IProps> = ({ name, path, Icon }) => {
+export const ListItem: FC<IListItemProps> = ({ name, path, Icon, isActive }) => {
   const { isOpen } = useLayoutStore();
 
   return (
-    <li className="text-black hover:bg-gray-800 rounded rounded-lg hover:text-white font-bold">
-      <Link href={path} className="flex items-center flex-row px-4 py-4">
+    <li>
+      <Link href={path} className={clsx('rounded-xl', { active: isActive })}>
         <span className="min-w-30">
           <Icon size={30} />
         </span>
-        {isOpen && <span className="ml-2">{name}</span>}
+        {isOpen && <span>{name}</span>}
       </Link>
     </li>
   );
