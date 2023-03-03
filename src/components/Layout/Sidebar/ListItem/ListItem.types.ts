@@ -1,8 +1,8 @@
 import { ElementType } from 'react';
 
-export interface IProps {
+export interface IListItemProps {
   name: string;
   path: string;
-  isActive: boolean;
   Icon: ElementType;
+  isActive?: boolean;
 }

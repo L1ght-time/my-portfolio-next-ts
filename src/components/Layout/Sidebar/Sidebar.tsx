@@ -23,7 +23,7 @@ export function Sidebar() {
           <ProfileImage />
         </div>
         <div className="mt-5 mb-4">
-          <ul className="flex flex-col gap-y-1.5">
+          <ul className="menu bg-base-100 gap-1.5">
             {model.map((item) => (
               <ListItem key={item.name} isActive={route === item.path} {...item} />
             ))}

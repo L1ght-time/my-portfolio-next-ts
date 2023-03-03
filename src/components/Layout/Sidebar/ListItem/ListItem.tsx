@@ -4,23 +4,18 @@ import clsx from 'clsx';
 
 import { useLayoutStore } from '@/store';
 
-import { IProps } from './ListItem.types';
+import { IListItemProps } from './ListItem.types';
 
-export const ListItem: FC<IProps> = ({ name, path, isActive, Icon }) => {
+export const ListItem: FC<IListItemProps> = ({ name, path, Icon, isActive }) => {
   const { isOpen } = useLayoutStore();
 
   return (
-    <li
-      className={clsx(`text-black rounded rounded-lg font-bold transition-colors`, {
-        'hover:bg-gray-700 hover:text-white': !isActive,
-        'bg-gray-800 text-white font-bold': isActive,
-      })}
-    >
-      <Link href={path} className="flex items-center flex-row px-4 py-4">
+    <li>
+      <Link href={path} className={clsx('rounded-xl', { active: isActive })}>
         <span className="min-w-30">
           <Icon size={30} />
         </span>
-        {isOpen && <span className="ml-2">{name}</span>}
+        {isOpen && <span>{name}</span>}
       </Link>
     </li>
   );
