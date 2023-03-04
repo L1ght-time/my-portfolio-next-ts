@@ -1,5 +1,5 @@
 interface ICompany {
-  path: string;
+  id: number;
   title: string;
 }
 
@@ -17,6 +17,7 @@ interface ITechnologyStack {
   id: string;
   tag: string;
 }
+
 export default interface IEmploymentHistoryProps {
   id: string;
   company: ICompany;

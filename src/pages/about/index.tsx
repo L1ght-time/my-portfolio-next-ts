@@ -42,6 +42,7 @@ const About: NextPage<IAboutData> = ({ title, employmentHistory }) => {
       </h1>
 
       <div>
+        <h2>Employment History:</h2>
         {employmentHistory.map((item) => (
           <EmploymentHistory key={item.id} {...item} />
         ))}

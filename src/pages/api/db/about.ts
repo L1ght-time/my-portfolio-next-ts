@@ -12,16 +12,16 @@ export const about: IAboutData = {
     {
       id: nanoid(),
       company: {
-        path: '@/assets/civenty.jpg',
+        id: 0,
         title: 'Civenty',
       },
       position: 'Frontend Developer',
       period: {
-        start: '',
-        end: '',
+        start: 'июнь 2019 г',
+        end: 'янв. 2020 г',
       },
-      responsibilities: [{ id: nanoid(), item: '' }],
-      technologyStack: [{ id: nanoid(), tag: '' }],
+      responsibilities: [{ id: nanoid(), item: 'cross-browser markup' }],
+      technologyStack: [{ id: nanoid(), tag: 'Javascript' }],
     },
   ],
 } as const;
