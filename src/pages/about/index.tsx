@@ -9,12 +9,12 @@ import { EmploymentHistory } from './EmploymentHistory';
 export async function getStaticProps() {
   try {
     const response = await fetch(`${process.env.API_HOST}/about`);
-    const data = await response.json();
+    const { title, employmentHistory } = await response.json();
 
     return {
       props: {
-        title: data.title,
-        employmentHistory: data.employmentHistory,
+        title,
+        employmentHistory,
       },
     };
   } catch {
