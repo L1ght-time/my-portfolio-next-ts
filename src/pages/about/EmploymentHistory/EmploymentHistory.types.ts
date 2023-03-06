@@ -1,5 +1,8 @@
+import { StaticImageData } from 'next/image';
+
 interface ICompany {
   id: number;
+  image: StaticImageData;
   title: string;
 }
 
@@ -10,7 +13,7 @@ interface IPeriod {
 
 interface IResponsibilities {
   id: string;
-  item: string;
+  responsibility: string;
 }
 
 interface ITechnologyStack {

@@ -1,16 +1,12 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import civenty from '@/assets/civenty.jpeg';
-
 import IEmploymentHistoryProps from './EmploymentHistory.types';
 
-const companiesLogos = [civenty];
-
 export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
-  company,
+  company: { image, title },
   position,
-  period,
+  period: { start, end },
   responsibilities,
   technologyStack,
 }) => {
@@ -18,17 +14,20 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
     <div className="card w-96 bg-base-100 shadow-xl">
       <div className="card-body">
         <div className="flex">
-          <Image src={companiesLogos[company.id]} width={60} height={60} alt="" />
+          <Image src={image} width={60} height={60} alt="" />
           <div>
             <h2 className="card-title">{position}</h2>
-            <h2 className="card-title">{company.title}</h2>
+            <h2 className="card-title">{title}</h2>
           </div>
         </div>
-        <span>{`${period.start} - ${period.end}`}</span>
+        <span>{`${start} - ${end}`}</span>
 
-        {responsibilities.map(({ id, item }) => (
-          <span key={id}>{item}</span>
-        ))}
+        <p>Skills:</p>
+        <ul>
+          {responsibilities.map(({ id, responsibility }) => (
+            <li key={id}>{responsibility}</li>
+          ))}
+        </ul>
         <p>Skills:</p>
         {technologyStack.map(({ id, tag }) => (
           <span key={id} className="badge">
