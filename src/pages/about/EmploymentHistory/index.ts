@@ -1,3 +1,3 @@
 export { EmploymentHistory } from './EmploymentHistory';
 
-export * from './EmploymentHistory.types';
+export { default } from './EmploymentHistory.types';
