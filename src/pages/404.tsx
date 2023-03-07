@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { useTimeoutFn } from 'react-use';
 
 import { ROUTES } from '@/constants';
+import { Title } from '@/components/shared/Title';
 
 const NotFound = () => {
   const router = useRouter();
@@ -18,9 +19,9 @@ const NotFound = () => {
         <button onClick={handeRedirect}>
           <TbArrowNarrowLeft fontSize={24} />
         </button>
-        <h1 className="font-medium">
+        <Title headingLevel="h2" className="font-medium">
           <FormattedMessage id={'404'} />
-        </h1>
+        </Title>
       </div>
     </div>
   );

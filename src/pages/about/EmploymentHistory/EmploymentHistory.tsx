@@ -1,5 +1,8 @@
 import { FC } from 'react';
-import Image from 'next/image';
+
+import { Title } from '@/components/shared/Title';
+import { Card, CardBody, CardImage, CardBadge, CardText } from '@/components/shared/Card';
+import { CardWrapper } from '@/components/shared/Card/CardWrapper';
 
 import IEmploymentHistoryProps from './EmploymentHistory.types';
 
@@ -11,30 +14,31 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
   technologyStack,
 }) => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <div className="card-body">
-        <div className="flex">
-          <Image src={image} width={60} height={60} alt="" />
-          <div>
-            <h2 className="card-title">{position}</h2>
-            <h2 className="card-title">{title}</h2>
-          </div>
-        </div>
-        <span>{`${start} - ${end}`}</span>
-
-        <p>Skills:</p>
-        <ul>
+    <Card className="card w-96 bg-base-100 shadow-xl">
+      <CardBody className="card-body">
+        <CardWrapper className="flex">
+          <CardImage src={image} width={60} height={60} alt="" />
+          <CardWrapper>
+            <Title headingLevel="h2" className="card-title">
+              {position}
+            </Title>
+            <Title headingLevel="h2" className="card-title">
+              {title}
+            </Title>
+          </CardWrapper>
+        </CardWrapper>
+        <CardText>{`${start} - ${end}`}</CardText>
+        <CardText>Responsibilities:</CardText>
+        <CardWrapper>
           {responsibilities.map(({ id, responsibility }) => (
-            <li key={id}>{responsibility}</li>
+            <CardText key={id}>{responsibility}</CardText>
           ))}
-        </ul>
-        <p>Skills:</p>
+        </CardWrapper>
+        <CardText>Skills:</CardText>
         {technologyStack.map(({ id, tag }) => (
-          <span key={id} className="badge">
-            {tag}
-          </span>
+          <CardBadge key={id}>{tag}</CardBadge>
         ))}
-      </div>
-    </div>
+      </CardBody>
+    </Card>
   );
 };
