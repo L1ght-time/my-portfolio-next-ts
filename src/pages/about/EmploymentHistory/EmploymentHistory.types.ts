@@ -21,7 +21,7 @@ interface ITechnologyStack {
   tag: string;
 }
 
-export default interface IEmploymentHistoryProps {
+export interface IEmploymentHistoryProps {
   id: string;
   company: ICompany;
   position: string;

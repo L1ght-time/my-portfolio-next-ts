@@ -4,7 +4,7 @@ import { Title } from '@/components/shared/Title';
 import { Card, CardBody, CardImage, CardBadge, CardText } from '@/components/shared/Card';
 import { CardWrapper } from '@/components/shared/Card/CardWrapper';
 
-import IEmploymentHistoryProps from './EmploymentHistory.types';
+import { IEmploymentHistoryProps } from './EmploymentHistory.types';
 
 export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
   company: { image, title },

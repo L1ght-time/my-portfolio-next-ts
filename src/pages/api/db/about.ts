@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-import IEmploymentHistoryProps from '@/pages/about/EmploymentHistory';
+import { IEmploymentHistoryProps } from '@/pages/about/EmploymentHistory';
 import civenty from '@/assets/civenty.jpeg';
 
 export interface IAboutData {
