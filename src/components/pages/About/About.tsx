@@ -30,19 +30,15 @@ export const About: NextPage<IAboutData> = ({ employmentHistory }) => {
   }
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-red-700">
-        <FormattedMessage id="about.title" />
-      </h1>
-
-      <div>
-        <h2>
-          <FormattedMessage id="about.employmentHistory.title" />
-        </h2>
+    <div>
+      <h2 className="text font-bold pb-3">
+        <FormattedMessage id="about.employmentHistory.title" />
+      </h2>
+      <div className="flex gap-6">
         {employmentHistory.map((item) => (
           <EmploymentHistory key={item.id} {...item} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
