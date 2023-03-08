@@ -15,8 +15,8 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
   return (
     <Card className="card w-96 bg-base-100 shadow-xl">
       <CardBody className="card-body">
-        <div className="flex">
-          <Image src={image} width={60} height={60} alt="" />
+        <div className="flex align-middle gap-3">
+          <Image src={image} className="w-16 h-16 -ml-4" alt="" />
           <div>
             <CardTitle as="h2">{position}</CardTitle>
             <CardTitle as="h2">{title}</CardTitle>

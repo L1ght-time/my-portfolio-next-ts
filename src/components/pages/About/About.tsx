@@ -1,11 +1,10 @@
-import type { GetStaticProps, NextPage } from 'next';
-import { FormattedMessage } from 'react-intl';
-import process from 'process';
+import { GetStaticProps, NextPage } from 'next';
 import ky from 'ky';
+import process from 'process';
+import { FormattedMessage } from 'react-intl';
 
 import { IAboutData } from '@/pages/api/db/about';
-
-import { EmploymentHistory } from './EmploymentHistory';
+import { EmploymentHistory } from '@/components/pages/About/EmploymentHistory';
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -25,7 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-const About: NextPage<IAboutData> = ({ employmentHistory }) => {
+export const About: NextPage<IAboutData> = ({ employmentHistory }) => {
   if (!employmentHistory) {
     return null;
   }
@@ -47,5 +46,3 @@ const About: NextPage<IAboutData> = ({ employmentHistory }) => {
     </>
   );
 };
-
-export default About;
