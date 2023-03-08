@@ -4,7 +4,6 @@ import process from 'process';
 import ky from 'ky';
 
 import { IAboutData } from '@/pages/api/db/about';
-import { Title } from '@/components/shared/Title';
 
 import { EmploymentHistory } from './EmploymentHistory';
 
@@ -33,14 +32,14 @@ const About: NextPage<IAboutData> = ({ employmentHistory }) => {
 
   return (
     <>
-      <Title headingLevel="h1" className="text-3xl font-bold underline text-red-700">
+      <h1 className="text-3xl font-bold underline text-red-700">
         <FormattedMessage id="about.title" />
-      </Title>
+      </h1>
 
       <div>
-        <Title headingLevel="h2">
+        <h2>
           <FormattedMessage id="about.employmentHistory.title" />
-        </Title>
+        </h2>
         {employmentHistory.map((item) => (
           <EmploymentHistory key={item.id} {...item} />
         ))}

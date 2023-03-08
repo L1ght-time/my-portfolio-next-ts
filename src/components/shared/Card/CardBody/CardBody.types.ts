@@ -1,3 +1,1 @@
-import { PropsWithChildren } from 'react';
-
-export type TCardBodyProps = PropsWithChildren<JSX.IntrinsicElements['div']>;
+export type TCardBodyProps = JSX.IntrinsicElements['div'];

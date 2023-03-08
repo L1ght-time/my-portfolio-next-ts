@@ -1,8 +1,7 @@
 import { FC } from 'react';
+import Image from 'next/image';
 
-import { Title } from '@/components/shared/Title';
-import { Card, CardBody, CardImage, CardBadge, CardText } from '@/components/shared/Card';
-import { CardWrapper } from '@/components/shared/Card/CardWrapper';
+import { Card, CardBody, CardActions, CardTitle } from '@/components/shared/Card';
 
 import { IEmploymentHistoryProps } from './EmploymentHistory.types';
 
@@ -16,28 +15,29 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
   return (
     <Card className="card w-96 bg-base-100 shadow-xl">
       <CardBody className="card-body">
-        <CardWrapper className="flex">
-          <CardImage src={image} width={60} height={60} alt="" />
-          <CardWrapper>
-            <Title headingLevel="h2" className="card-title">
-              {position}
-            </Title>
-            <Title headingLevel="h2" className="card-title">
-              {title}
-            </Title>
-          </CardWrapper>
-        </CardWrapper>
-        <CardText>{`${start} - ${end}`}</CardText>
-        <CardText>Responsibilities:</CardText>
-        <CardWrapper>
+        <div className="flex">
+          <Image src={image} width={60} height={60} alt="" />
+          <div>
+            <CardTitle as="h2">{position}</CardTitle>
+            <CardTitle as="h2">{title}</CardTitle>
+          </div>
+        </div>
+        <p>{`${start} - ${end}`}</p>
+        <p>Responsibilities:</p>
+        <div>
           {responsibilities.map(({ id, responsibility }) => (
-            <CardText key={id}>{responsibility}</CardText>
+            <p key={id}>{responsibility}</p>
           ))}
-        </CardWrapper>
-        <CardText>Skills:</CardText>
+        </div>
+        <p>Skills:</p>
         {technologyStack.map(({ id, tag }) => (
-          <CardBadge key={id}>{tag}</CardBadge>
+          <span key={id} className="badge">
+            {tag}
+          </span>
         ))}
+        <CardActions>
+          <button className="btn">More Details</button>
+        </CardActions>
       </CardBody>
     </Card>
   );
