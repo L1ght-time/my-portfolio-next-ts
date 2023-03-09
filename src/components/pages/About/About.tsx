@@ -8,7 +8,7 @@ import { EmploymentHistory } from '@/components/pages/About/EmploymentHistory';
 const fetcher = (...args: any[]) => fetch(...(args as [any, any])).then((res) => res.json());
 
 export const About: NextPage = () => {
-  const { data: about } = useSWR<IAboutData>(`${process.env.API_HOST}/about`, fetcher);
+  const { data: about } = useSWR<IAboutData>('/api/about', fetcher);
   if (!about?.employmentHistory) {
     return null;
   }
