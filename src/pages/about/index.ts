@@ -1,1 +1,1 @@
-export { About as default, getStaticProps } from '@/components/pages/About';
+export { About as default } from '@/components/pages/About';

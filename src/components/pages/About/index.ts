@@ -1,1 +1,1 @@
-export { About, getStaticProps } from './About';
+export { About } from './About';
