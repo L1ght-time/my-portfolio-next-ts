@@ -4,7 +4,6 @@ import useSWR from 'swr';
 
 import { IAboutData } from '@/pages/api/db/about';
 import { EmploymentHistory } from '@/components/pages/About/EmploymentHistory';
-import * as process from "process";
 
 const fetcher = (...args: any[]) => fetch(...(args as [any, any])).then((res) => res.json());
 
