@@ -1,12 +1,10 @@
 import { NextPage } from 'next';
-import ky from 'ky';
 import { FormattedMessage } from 'react-intl';
 import useSWR from 'swr';
 
 import { IAboutData } from '@/pages/api/db/about';
 import { EmploymentHistory } from '@/components/pages/About/EmploymentHistory';
 
-// const fetcher = ky.get('/api/about').json;
 const fetcher = (...args: any[]) => fetch(...(args as [any, any])).then((res) => res.json());
 
 export const About: NextPage = () => {
