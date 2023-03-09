@@ -28,7 +28,6 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
               <> - </>
               <FormattedDate value={end} year="numeric" month="short" />
               <>({getAmountOfPeriod({ months: diff.as('months') })})</>
-              {/*<FormattedMessage id={getAmountOfPeriod({ months: diff.as('months') })} />*/}
             </p>
           </div>
         </div>

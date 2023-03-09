@@ -7,7 +7,6 @@ export const getAmountOfPeriod = ({ months }: IDiffPeriodProps): string | null =
     return null;
   }
 
-  console.log({ months });
   const monthsAmount = months + 1;
 
   const monthsAmountMoreYear = ((monthsAmount + 1) / 12).toFixed(1);
