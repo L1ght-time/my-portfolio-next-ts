@@ -2,7 +2,8 @@ import { LOCALES } from '@/i18n/constants';
 
 export default {
   [LOCALES.uk]: {
-    title: 'Про мене',
+    'about.employmentHistory.title': 'Історія Працевлаштування:',
+    'about.employmentHistory.button': 'Більш Детально',
     404: 'Сторінка не знайдена',
   },
 };
