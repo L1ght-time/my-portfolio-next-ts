@@ -12,7 +12,7 @@ export const getAmountOfPeriod = ({ months }: IDiffPeriodProps): string | null =
   const monthsAmountMoreYear = ((monthsAmount + 1) / 12).toFixed(1);
 
   if (monthsAmount < 12) {
-    return `${monthsAmount} months`;
+    return `${monthsAmount.toFixed(1)} months`;
   }
 
   if (months === 12) {
