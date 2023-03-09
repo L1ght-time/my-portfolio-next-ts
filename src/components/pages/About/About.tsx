@@ -10,6 +10,12 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const { employmentHistory } = await ky.get(`${process.env.API_HOST}/about`).json<IAboutData>();
 
+    if (!employmentHistory) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
       props: {
         employmentHistory,
