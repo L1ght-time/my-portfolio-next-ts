@@ -1,5 +1,5 @@
-import { LanguageDropdown } from '@/components/Layout/NavBar/LanguageDropdown';
-import { ThemeDropdown } from '@/components/Layout/NavBar/ThemeDropdown';
+import { LanguageDropdown } from '@/components/layouts/MainLayout/NavBar/LanguageDropdown';
+import { ThemeDropdown } from '@/components/layouts/MainLayout/NavBar/ThemeDropdown';
 
 export const NavBar = () => {
   return (

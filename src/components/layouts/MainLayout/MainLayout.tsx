@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react';
 
-import { Sidebar } from '@/components/Layout/Sidebar';
-import { NavBar } from '@/components/Layout/NavBar';
+import { Sidebar } from '@/components/layouts/MainLayout/Sidebar';
+import { NavBar } from '@/components/layouts/MainLayout/NavBar';
 
-export const Layout = ({ children }: PropsWithChildren) => {
+export const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex">
       <Sidebar />
