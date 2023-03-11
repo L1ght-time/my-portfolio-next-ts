@@ -2,10 +2,10 @@ import { RxDoubleArrowLeft, RxDoubleArrowRight } from 'react-icons/rx';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
-import { ListItem } from '@/components/Layout/Sidebar/ListItem';
 import { useLayoutStore } from '@/store';
 import { ProfileImage } from '@/components/shared';
 
+import { ListItem } from './ListItem';
 import { model } from './Sidebar.constants';
 
 export function Sidebar() {
