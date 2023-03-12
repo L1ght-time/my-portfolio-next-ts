@@ -8,12 +8,10 @@ export default {
     404: 'Page is not found',
     'years.locale': `{amount, plural,
         =0 {}
-        one {# y.}
         other {# y.}
       }`,
     'months.locale': `{amount, plural,
         =0 {}
-        one {# mon.}
         other {# mon.}
       }`,
   },
