@@ -4,8 +4,7 @@ import useSWR from 'swr';
 
 import { IAboutData } from '@/pages/api/db/about';
 import { EmploymentHistory } from '@/components/pages/About/EmploymentHistory';
-
-const fetcher = (...args: any[]) => fetch(...(args as [any, any])).then((res) => res.json());
+import { fetcher } from '@/constants';
 
 export const About: NextPage = () => {
   const { data: about } = useSWR<IAboutData>('/api/about', fetcher);
