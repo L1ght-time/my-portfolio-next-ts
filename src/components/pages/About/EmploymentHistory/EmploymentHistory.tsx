@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import { FormattedDate, FormattedMessage } from 'react-intl';
-import { DateTime, Duration } from 'luxon';
+import { DateTime } from 'luxon';
 
 import { Card, CardBody, CardActions, CardTitle } from '@/components/shared/Card';
 
@@ -13,12 +13,7 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
   period: { start, end },
 }) => {
   const { years, months } = DateTime.fromISO(end).diff(DateTime.fromISO(start), ['years', 'months']);
-  // console.log({ diff });
-  // console.log({ date: Interval.fromDateTimes(DateTime.fromISO(start), DateTime.fromISO(end)) });
 
-  const duration = Duration.fromObject({ years, months }).toFormat('y M');
-
-  console.log({ duration });
   return (
     <Card className="card w-96 bg-base-100 shadow-xl">
       <CardBody className="card-body">
@@ -31,8 +26,9 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
               <FormattedDate value={start} year="numeric" month="short" />
               <> - </>
               <FormattedDate value={end} year="numeric" month="short" />
-              ...
-              <FormattedDate value={duration} year="numeric" month="numeric" />
+              <> - </>
+              <FormattedMessage id="years.locale" values={{ amount: years }} />
+              <FormattedMessage id="months.locale" values={{ amount: months + 1 }} />
             </p>
           </div>
         </div>

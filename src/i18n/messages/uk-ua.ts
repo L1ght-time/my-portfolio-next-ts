@@ -5,5 +5,15 @@ export default {
     'about.employmentHistory.title': 'Історія Працевлаштування:',
     'about.employmentHistory.button': 'Більш Детально',
     404: 'Сторінка не знайдена',
+    'years.locale': `{amount, plural,
+        =0 {}
+        one {# р.}
+        other {# р.}
+      }`,
+    'months.locale': `{amount, plural,
+        =0 {}
+        one {# міс.}
+        other {# міс.}
+      }`,
   },
 };
