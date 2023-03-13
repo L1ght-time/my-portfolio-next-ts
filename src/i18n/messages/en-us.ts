@@ -7,7 +7,7 @@ export default {
     404: 'Page is not found',
     years: `{amount, plural,
         =0 {}
-        one {# y.}
+        one {# y. }
         other {# y.}
       }`,
     months: `{amount, plural,

@@ -7,7 +7,7 @@ export default {
     404: 'Сторінка не знайдена',
     years: `{amount, plural,
         =0 {}
-        other {# р.}
+        other {# р. }
       }`,
     months: `{amount, plural,
         =0 {}
