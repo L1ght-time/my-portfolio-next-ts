@@ -14,7 +14,7 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
 }) => {
   const { years, months } = DateTime.fromISO(end).diff(DateTime.fromISO(start), ['years', 'months']);
 
-  const computedAmountMonths = months && months < 12 ? months + 1 : months;
+  const computedAmountMonths = months && months < 11 ? months + 1 : months;
 
   return (
     <Card className="card w-[400px] bg-base-100 shadow-xl">
