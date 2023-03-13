@@ -14,8 +14,10 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
 }) => {
   const { years, months } = DateTime.fromISO(end).diff(DateTime.fromISO(start), ['years', 'months']);
 
+  const computedAmountMonths = months && months < 12 ? months + 1 : months;
+
   return (
-    <Card className="card w-96 bg-base-100 shadow-xl">
+    <Card className="card w-[400px] bg-base-100 shadow-xl">
       <CardBody className="card-body">
         <div className="flex align-middle gap-3">
           <Image src={image} className="w-16 h-16 -ml-4 rounded-xl" alt="" />
@@ -26,9 +28,11 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
               <FormattedDate value={start} year="numeric" month="short" />
               <> - </>
               <FormattedDate value={end} year="numeric" month="short" />
-              <> - </>
-              <FormattedMessage id="years.locale" values={{ amount: years }} />
-              <FormattedMessage id="months.locale" values={{ amount: months + 1 }} />
+              <>
+                (
+                <FormattedMessage id="years" values={{ amount: years }} />
+                <FormattedMessage id="months" values={{ amount: computedAmountMonths }} />)
+              </>
             </p>
           </div>
         </div>
