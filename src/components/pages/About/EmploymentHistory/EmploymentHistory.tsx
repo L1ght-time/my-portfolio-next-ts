@@ -1,10 +1,9 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import Image from 'next/image';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 import { DateTime } from 'luxon';
 
 import { Card, CardBody, CardActions, CardTitle } from '@/components/shared/Card';
-import { getAmountOfPeriod } from '@/components/pages/About/EmploymentHistory/helper/getDiffPeriod';
 
 import { IEmploymentHistoryProps } from './EmploymentHistory.types';
 
@@ -13,10 +12,13 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
   position,
   period: { start, end },
 }) => {
-  const diff = DateTime.fromISO(end).diff(DateTime.fromISO(start), 'months');
+  const { years, months } = useMemo(
+    () => DateTime.fromISO(end).diff(DateTime.fromISO(start), ['years', 'months']).plus({ month: 1 }).normalize(),
+    [],
+  );
 
   return (
-    <Card className="card w-96 bg-base-100 shadow-xl">
+    <Card className="card w-[400px] bg-base-100 shadow-xl">
       <CardBody className="card-body">
         <div className="flex align-middle gap-3">
           <Image src={image} className="w-16 h-16 -ml-4 rounded-xl" alt="" />
@@ -27,7 +29,11 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
               <FormattedDate value={start} year="numeric" month="short" />
               <> - </>
               <FormattedDate value={end} year="numeric" month="short" />
-              <>({getAmountOfPeriod({ months: diff.as('months') })})</>
+              <>
+                (
+                <FormattedMessage id="years" values={{ amount: years }} />
+                <FormattedMessage id="months" values={{ amount: months }} />)
+              </>
             </p>
           </div>
         </div>
