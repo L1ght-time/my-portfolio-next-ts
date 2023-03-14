@@ -32,7 +32,7 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
               <>
                 (
                 <FormattedMessage id="years" values={{ amount: years }} />
-                <FormattedMessage id="months" values={{ amount: months }} />)
+                <FormattedMessage id="months" values={{ amount: Math.round(months) }} />)
               </>
             </p>
           </div>
