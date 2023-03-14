@@ -1,4 +1,4 @@
-import { create, SetState } from 'zustand';
+import { create, StoreApi } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { useEffect, useState } from 'react';
 
@@ -11,18 +11,13 @@ interface IStore {
 
 const localeKey = 'locale';
 
-const initialStore = (): IStore => ({
+const emptyStore = (set?: StoreApi<IStore>['setState']): IStore => ({
   locale: LOCALES.en,
-  setLocale: (locale) => locale,
-});
-
-const emptyStorageStore = (set: SetState<IStore>): IStore => ({
-  locale: LOCALES.en,
-  setLocale: (locale) => set(() => ({ locale })),
+  setLocale: (locale) => set?.(() => ({ locale })),
 });
 
 export const useCombinedStore = create<IStore>()(
-  persist<IStore>(emptyStorageStore, {
+  persist<IStore>(emptyStore, {
     name: localeKey,
   }),
 );
@@ -32,5 +27,5 @@ export const useLocaleStore = () => {
   const [isHydrated, setHydrated] = useState(false);
   useEffect(() => setHydrated(true), []);
 
-  return isHydrated ? store : initialStore();
+  return isHydrated ? store : emptyStore();
 };
