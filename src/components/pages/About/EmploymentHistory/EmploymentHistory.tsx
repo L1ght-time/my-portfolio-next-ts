@@ -2,16 +2,20 @@ import { FC, useMemo } from 'react';
 import Image from 'next/image';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 import { DateTime } from 'luxon';
+import { useRouter } from 'next/router';
 
 import { Card, CardBody, CardActions, CardTitle } from '@/components/shared/Card';
 
 import { IEmploymentHistoryProps } from './EmploymentHistory.types';
 
 export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
+  id,
   company: { image, title },
   position,
   period: { start, end },
 }) => {
+  const router = useRouter();
+
   const { years, months } = useMemo(
     () => DateTime.fromISO(end).diff(DateTime.fromISO(start), ['years', 'months']).plus({ month: 1 }).normalize(),
     [],
@@ -38,7 +42,7 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
           </div>
         </div>
         <CardActions className="mt-4">
-          <button className="btn">
+          <button className="btn" onClick={() => router.push(`/employment-details`)}>
             <FormattedMessage id="about.employmentHistory.button" />
           </button>
         </CardActions>
