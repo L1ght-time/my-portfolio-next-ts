@@ -42,7 +42,7 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
           </div>
         </div>
         <CardActions className="mt-4">
-          <button className="btn" onClick={() => router.push(`/employment-details`)}>
+          <button className="btn" onClick={() => router.push(`/employment-details/${id}`)}>
             <FormattedMessage id="about.employmentHistory.button" />
           </button>
         </CardActions>
