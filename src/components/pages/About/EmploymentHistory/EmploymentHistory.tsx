@@ -5,10 +5,9 @@ import { DateTime } from 'luxon';
 import { useRouter } from 'next/router';
 
 import { Card, CardBody, CardActions, CardTitle } from '@/components/shared/Card';
+import { IEmploymentHistory } from '@/types/IEmploymentHistory';
 
-import { IEmploymentHistoryProps } from './EmploymentHistory.types';
-
-export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
+export const EmploymentHistory: FC<IEmploymentHistory> = ({
   id,
   company: { image, title },
   position,
@@ -30,9 +29,9 @@ export const EmploymentHistory: FC<IEmploymentHistoryProps> = ({
             <CardTitle as="h2">{position}</CardTitle>
             <CardTitle as="h2">{title}</CardTitle>
             <p>
-              <FormattedDate value={start} year="numeric" month="short" />
+              <FormattedDate value={DateTime.fromISO(start).toString()} year="numeric" month="short" />
               <> - </>
-              <FormattedDate value={end} year="numeric" month="short" />
+              <FormattedDate value={DateTime.fromISO(end).toString()} year="numeric" month="short" />
               <>
                 (
                 <FormattedMessage id="years" values={{ amount: years }} />

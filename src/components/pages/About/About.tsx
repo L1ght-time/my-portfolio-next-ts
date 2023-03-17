@@ -2,17 +2,17 @@ import { NextPage } from 'next';
 import { FormattedMessage } from 'react-intl';
 import useSWR from 'swr';
 
-import { IAboutData } from '@/pages/api/db/about';
-import { EmploymentHistory } from '@/components/pages/About/EmploymentHistory';
 import { fetcher } from '@/constants';
+import { IEmploymentHistory } from '@/types/IEmploymentHistory';
+
+import { EmploymentHistory } from './EmploymentHistory';
 
 export const About: NextPage = () => {
-  const { data: about } = useSWR<IAboutData>('/api/about', fetcher);
-  if (!about?.employmentHistory) {
+  const { data: employmentHistory } = useSWR<ReadonlyArray<IEmploymentHistory>>('/api/employmentHistory', fetcher);
+
+  if (!employmentHistory?.length) {
     return null;
   }
-
-  const { employmentHistory } = about;
 
   return (
     <div>
