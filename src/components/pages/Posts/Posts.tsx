@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 export const getStaticProps = async () => {
-  const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then((response) => response.json());
-
   try {
+    const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then((response) => response.json());
+
     return {
       props: {
         posts,

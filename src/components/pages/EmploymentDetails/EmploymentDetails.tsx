@@ -5,18 +5,18 @@ import { fetcher } from '@/constants';
 import { IEmploymentHistory } from '@/types/IEmploymentHistory';
 
 export const EmploymentDetails = () => {
-  const router = useRouter();
-  const { data: employmentHistory } = useSWR<ReadonlyArray<IEmploymentHistory>>('/api/employmentHistory', fetcher);
+  const {
+    query: { employmentId },
+  } = useRouter();
 
-  if (!employmentHistory?.length) {
+  const { data: employmentHistory } = useSWR<IEmploymentHistory>(
+    employmentId ? `/api/employmentHistory/${employmentId}` : null,
+    fetcher,
+  );
+
+  if (!employmentHistory) {
     return null;
   }
 
-  const card = employmentHistory.find(({ id }: any) => id === router.query.id);
-
-  if (!card) {
-    return null;
-  }
-
-  return <div>{card.company.title}</div>;
+  return <div>{employmentHistory.company.title}</div>;
 };
