@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 
 import { Card, CardBody, CardActions, CardTitle } from '@/components/shared/Card';
 import { IEmploymentHistory } from '@/types/IEmploymentHistory';
+import { convertDateFromISOToString } from '@/helpers';
 
 export const EmploymentHistory: FC<IEmploymentHistory> = ({
   id,
@@ -20,6 +21,8 @@ export const EmploymentHistory: FC<IEmploymentHistory> = ({
     [],
   );
 
+  const handleDetail = () => router.push(`/employment-details/${id}`);
+
   return (
     <Card className="card w-[400px] bg-base-100 shadow-xl">
       <CardBody className="card-body">
@@ -29,9 +32,9 @@ export const EmploymentHistory: FC<IEmploymentHistory> = ({
             <CardTitle as="h2">{position}</CardTitle>
             <CardTitle as="h2">{title}</CardTitle>
             <p>
-              <FormattedDate value={DateTime.fromISO(start).toString()} year="numeric" month="short" />
+              <FormattedDate value={convertDateFromISOToString(start)} year="numeric" month="short" />
               <> - </>
-              <FormattedDate value={DateTime.fromISO(end).toString()} year="numeric" month="short" />
+              <FormattedDate value={convertDateFromISOToString(end)} year="numeric" month="short" />
               <>
                 (
                 <FormattedMessage id="years" values={{ amount: years }} />
@@ -41,7 +44,7 @@ export const EmploymentHistory: FC<IEmploymentHistory> = ({
           </div>
         </div>
         <CardActions className="mt-4">
-          <button className="btn" onClick={() => router.push(`/employment-details/${id}`)}>
+          <button className="btn" onClick={handleDetail}>
             <FormattedMessage id="about.employmentHistory.button" />
           </button>
         </CardActions>

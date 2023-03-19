@@ -7,6 +7,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     query: { employmentId },
   } = req;
 
+  // TODO: simplify big O notation from O(n) to O(1)
   const history = employmentHistory.find(({ id }: { id: string }) => id === employmentId);
 
   if (req.method === 'GET') {
