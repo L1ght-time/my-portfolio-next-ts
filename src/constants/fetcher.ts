@@ -1,1 +1,10 @@
-export const fetcher = (...args: any[]) => fetch(...(args as [any, any])).then((res) => res.json());
+export const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if (res.status !== 200) {
+    throw new Error(data.message);
+  }
+
+  return data;
+};

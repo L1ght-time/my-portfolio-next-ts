@@ -7,7 +7,7 @@ import { IEmploymentHistory } from '@/types/IEmploymentHistory';
 
 export const employmentHistory: ReadonlyArray<IEmploymentHistory> = [
   {
-    id: nanoid(),
+    id: '1',
     company: {
       image: clockwise,
       title: 'Clockwise Software',
@@ -21,7 +21,7 @@ export const employmentHistory: ReadonlyArray<IEmploymentHistory> = [
     technologyStack: [{ id: nanoid(), tag: 'Javascript' }],
   },
   {
-    id: nanoid(),
+    id: '2',
     company: {
       image: cleveroad,
       title: 'Cleveroad',
@@ -35,7 +35,7 @@ export const employmentHistory: ReadonlyArray<IEmploymentHistory> = [
     technologyStack: [{ id: nanoid(), tag: 'Javascript' }],
   },
   {
-    id: nanoid(),
+    id: '3',
     company: {
       image: civenty,
       title: 'Civenty',

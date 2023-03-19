@@ -20,8 +20,8 @@ export const About: NextPage = () => {
         <FormattedMessage id="about.employmentHistory.title" />
       </h2>
       <div className="flex gap-6">
-        {employmentHistory.map((item) => (
-          <EmploymentHistory key={item.id} {...item} />
+        {employmentHistory.map((history) => (
+          <EmploymentHistory key={history.id} {...history} />
         ))}
       </div>
     </div>

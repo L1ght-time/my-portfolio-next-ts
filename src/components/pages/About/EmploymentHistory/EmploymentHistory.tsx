@@ -14,14 +14,14 @@ export const EmploymentHistory: FC<IEmploymentHistory> = ({
   position,
   period: { start, end },
 }) => {
-  const router = useRouter();
+  const { push } = useRouter();
 
   const { years, months } = useMemo(
     () => DateTime.fromISO(end).diff(DateTime.fromISO(start), ['years', 'months']).plus({ month: 1 }).normalize(),
     [],
   );
 
-  const handleDetail = () => router.push(`/employment-details/${id}`);
+  const handleDetail = () => push(`/employment-details/${id}`);
 
   return (
     <Card className="card w-[400px] bg-base-100 shadow-xl">
