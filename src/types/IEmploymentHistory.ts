@@ -5,7 +5,7 @@ interface ICompany {
   title: string;
 }
 
-interface IPeriod {
+export interface IPeriod {
   start: string;
   end: string;
 }
