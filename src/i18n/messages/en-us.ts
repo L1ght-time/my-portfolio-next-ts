@@ -14,5 +14,10 @@ export default {
         =0 {}
         other {# mon.}
       }`,
+    'employmentHistoryDetail.company': 'Company:',
+    'employmentHistoryDetail.position': 'Position:',
+    'employmentHistoryDetail.period': 'Work period:',
+    'employmentHistoryDetail.responsibilities': 'Responsibilities:',
+    'employmentHistoryDetail.technologyStack': 'Technology stack:',
   },
 };

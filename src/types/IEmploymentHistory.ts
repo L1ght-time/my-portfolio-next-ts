@@ -1,21 +1,21 @@
 import { StaticImageData } from 'next/image';
 
-interface ICompany {
+export interface ICompany {
   image: StaticImageData;
   title: string;
 }
 
-interface IPeriod {
+export interface IPeriod {
   start: string;
   end: string;
 }
 
-interface IResponsibilities {
+export interface IResponsibilities {
   id: string;
   responsibility: string;
 }
 
-interface ITechnologyStack {
+export interface ITechnologyStack {
   id: string;
   tag: string;
 }
