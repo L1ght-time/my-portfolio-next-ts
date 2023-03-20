@@ -49,17 +49,23 @@ export const EmploymentDetails: FC = () => {
         </button>
       </div>
       <div className="flex">
-        <h2 className="font-bold">Company:</h2>
+        <h2 className="font-bold">
+          <FormattedMessage id="employmentHistoryDetail.company" />
+        </h2>
         <p>{title}</p>
       </div>
 
       <div className="flex">
-        <h2 className="font-bold">Position:</h2>
+        <h2 className="font-bold">
+          <FormattedMessage id="employmentHistoryDetail.position" />
+        </h2>
         <p>{position}</p>
       </div>
 
       <div className="flex">
-        <h2 className="font-bold">Work period:</h2>
+        <h2 className="font-bold">
+          <FormattedMessage id="employmentHistoryDetail.period" />
+        </h2>
         <p>
           <FormattedDate value={convertDateFromISOToString(start)} year="numeric" month="short" />
           <> - </>
@@ -73,14 +79,18 @@ export const EmploymentDetails: FC = () => {
       </div>
 
       <div>
-        <h2 className="font-bold">Responsibilities:</h2>
+        <h2 className="font-bold">
+          <FormattedMessage id="employmentHistoryDetail.responsibilities" />
+        </h2>
         {responsibilities.map(({ id, responsibility }) => (
           <div key={id}>{responsibility}</div>
         ))}
       </div>
 
       <div>
-        <h2 className="font-bold">Technology stack:</h2>
+        <h2 className="font-bold">
+          <FormattedMessage id="employmentHistoryDetail.technologyStack" />
+        </h2>
         <div className="flex flex-wrap gap-2">
           {technologyStack.map(({ id, tag }) => (
             <span key={id} className="badge">
