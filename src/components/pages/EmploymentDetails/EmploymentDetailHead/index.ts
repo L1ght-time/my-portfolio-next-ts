@@ -1,0 +1,1 @@
+export { EmploymentDetailHead } from './EmploymentDetailHead';

@@ -1,0 +1,1 @@
+export { EmploymentDetailResponsibilities } from './EmploymentDetailResponsibilities';
