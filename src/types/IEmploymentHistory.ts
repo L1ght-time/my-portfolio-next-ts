@@ -1,7 +1,6 @@
 import { StaticImageData } from 'next/image';
 
 interface ICompany {
-  id: number;
   image: StaticImageData;
   title: string;
 }
@@ -21,7 +20,7 @@ interface ITechnologyStack {
   tag: string;
 }
 
-export interface IEmploymentHistoryProps {
+export interface IEmploymentHistory {
   id: string;
   company: ICompany;
   position: string;

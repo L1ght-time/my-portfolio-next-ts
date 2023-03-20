@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 
 import { useLayoutStore } from '@/store';
-import { ProfileImage } from '@/components/shared';
+import { ProfileImage } from '@/components/shared/ProfileImage';
 
 import { ListItem } from './ListItem';
 import { model } from './Sidebar.constants';
