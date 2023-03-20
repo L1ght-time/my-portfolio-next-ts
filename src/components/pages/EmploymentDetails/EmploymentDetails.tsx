@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { FC } from 'react';
 import Image from 'next/image';
 import { FormattedDate, FormattedMessage } from 'react-intl';
+import { router } from 'next/client';
+import { MdOutlineKeyboardArrowLeft } from 'react-icons/md';
 
 import { fetcher } from '@/constants';
 import { IEmploymentHistory } from '@/types/IEmploymentHistory';
@@ -40,7 +42,12 @@ export const EmploymentDetails: FC = () => {
 
   return (
     <Card className="w-1/2 h-full p-5">
-      <Image src={image} className="w-16 h-16 rounded-xl" alt="" />
+      <div className="flex justify-between">
+        <Image src={image} className="w-16 h-16 rounded-xl" alt="" />
+        <button onClick={router.back}>
+          <MdOutlineKeyboardArrowLeft fontSize={36} />
+        </button>
+      </div>
       <div className="flex">
         <h2 className="font-bold">Company:</h2>
         <p>{title}</p>
