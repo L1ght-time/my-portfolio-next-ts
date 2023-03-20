@@ -74,11 +74,13 @@ export const EmploymentDetails: FC = () => {
 
       <div>
         <h2 className="font-bold">Technology stack:</h2>
-        {technologyStack.map(({ id, tag }) => (
-          <span key={id} className="badge">
-            {tag}
-          </span>
-        ))}
+        <div className="flex flex-wrap gap-2">
+          {technologyStack.map(({ id, tag }) => (
+            <span key={id} className="badge">
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </Card>
   );
